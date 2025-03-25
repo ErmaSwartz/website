@@ -1,0 +1,134 @@
+/* Global Styles */
+body {
+  font-family: 'Seravek', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #222; /* Default text color */
+  background-color: #F7F7F7;
+}
+
+/* Header and Navigation */
+header {
+  background-color: rgb(34, 36, 38); /* Dark theme */
+  color: white;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+header .logo h1 {
+  margin: 0;
+}
+
+header nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 15px;
+}
+
+header nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+header nav ul li a:hover {
+  color: rgb(88, 142, 146); /* Teal highlight */
+}
+
+/* Hero Section */
+#hero {
+  background-color: rgb(114, 188, 142); /* Soft green */
+  color: white;
+  text-align: center;
+  padding: 50px 20px;
+}
+
+#hero h2 {
+  font-size: 2.5em;
+}
+
+#hero p {
+  font-size: 1.2em;
+  margin-top: 10px;
+}
+
+/* Section Styles */
+section {
+  padding: 40px 20px;
+}
+
+h2 {
+  font-size: 2em;
+  color: rgb(148, 95, 16); /* Deep orange */
+}
+
+p, ul {
+  font-size: 1em;
+  line-height: 1.6;
+}
+
+ul {
+  list-style-type: square;
+}
+
+ul li {
+  margin-bottom: 10px;
+}
+.book-container {
+  width: 1000px; /* Adjust to fit 8.5x11 proportions */
+  height: 600px; /* Keep aspect ratio */
+  margin: 0 auto;
+  background-color: #000;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  overflow: hidden;
+}
+.page img {
+  width: 100%;
+  height: auto;
+  object-fit: cover; /* Ensures the images scale correctly */
+}
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2rem;
+  color: #72bc8e;
+  cursor: pointer;
+  z-index: 1000;
+  user-select: none;
+}
+
+.arrow.left {
+  left: 10px;
+}
+
+.arrow.right {
+  right: 10px;
+}
+
+.arrow:hover {
+  color: #5aa87c; /* Slightly darker green for hover */
+}
+/* Links */
+a {
+  color: rgb(255, 164, 28); /* Bright orange */
+  text-decoration: none;
+}
+
+a:hover {
+  color: rgb(88, 142, 146); /* Teal highlight */
+}
+
+/* Footer */
+footer {
+  background-color: rgb(34, 36, 38); /* Dark theme */
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+}
