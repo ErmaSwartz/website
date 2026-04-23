@@ -4,7 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Model — Erma Swartz</title>
+    <meta name="description" content="Predictive modeling and scenario simulation for urban systems — Random Forest, XGBoost, and OLS regression applied to CO2 emissions, transit equity, and air quality.">
     <link rel="stylesheet" href="styles.css">
+    <meta property="og:title" content="Model — Erma Swartz">
+    <meta property="og:description" content="I run random forests and regressions until the city stops being a mystery.">
     <meta property="og:image" content="https://ermaswartz.com/images/og-thumbnail.png">
     <meta property="og:type" content="website">
     <meta name="twitter:card" content="summary_large_image">
@@ -12,7 +15,7 @@
     <style>
         /* Code snippet styling */
         .code-snippet {
-            background: #1a2a1f;
+            background: #1e1510;
             border-radius: var(--radius-lg);
             padding: 1.5rem;
             margin-top: 1.25rem;
@@ -20,23 +23,23 @@
             box-shadow: var(--shadow-md);
         }
         .code-snippet pre {
-            font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+            font-family: 'IBM Plex Mono', 'SF Mono', 'Fira Code', 'Consolas', monospace;
             font-size: 0.78rem;
             line-height: 1.7;
-            color: #b8c5a3;
+            color: #c4b097;
             margin: 0;
             white-space: pre;
         }
-        .code-snippet .comment { color: #6a7a5e; }
-        .code-snippet .keyword { color: #7eb89e; }
+        .code-snippet .comment { color: #7a6b5a; }
+        .code-snippet .keyword { color: #c44536; }
         .code-snippet .string { color: #d4a76a; }
-        .code-snippet .func { color: #8ab4d6; }
+        .code-snippet .func { color: #8fa68e; }
         .code-snippet-label {
             font-size: 0.7rem;
             font-weight: 600;
             letter-spacing: 0.1em;
             text-transform: uppercase;
-            color: #6a7a5e;
+            color: #7a6b5a;
             margin-bottom: 0.75rem;
             display: block;
         }
@@ -367,6 +370,7 @@ importances = pd.<span class="func">Series</span>(
     <!-- Footer -->
     <footer class="site-footer">
         <div class="footer-inner">
+            <p>Made in New York with too much coffee and QGIS.</p>
             <p>&copy; 2026 Erma Swartz</p>
             <div class="footer-links">
                 <a href="mailto:ermahswartz@gmail.com">Email</a>

@@ -4,7 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Argue — Erma Swartz</title>
+    <meta name="description" content="A year-long thesis on circular economy and embodied carbon in NYC construction — turning spatial analysis into policy recommendations worth 57M tCO₂e.">
     <link rel="stylesheet" href="styles.css">
+    <meta property="og:title" content="Argue — Erma Swartz">
+    <meta property="og:description" content="A year-long thesis turning spatial analysis into policy recommendations worth 57M tCO₂e.">
     <meta property="og:image" content="https://ermaswartz.com/images/og-thumbnail.png">
     <meta property="og:type" content="website">
     <meta name="twitter:card" content="summary_large_image">
@@ -42,10 +45,10 @@
             border-top: 1px solid var(--sage-light);
         }
         .chart-card-body h4 {
-            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-family: 'Fraunces', Georgia, serif;
             font-size: 0.95rem;
             color: var(--forest-deep);
-            font-variation-settings: 'WONK' 1, 'SOFT' 80;
+            /* Fraunces optical sizing */
             margin-bottom: 0.25rem;
             display: flex;
             justify-content: space-between;
@@ -53,7 +56,7 @@
         }
         .chart-card-body h4::after {
             content: '+';
-            font-family: 'DM Sans', sans-serif;
+            font-family: 'Inter', sans-serif;
             font-size: 1.2rem;
             color: var(--moss);
             transition: transform 0.3s ease;
@@ -122,10 +125,10 @@
             border-radius: var(--radius);
         }
         .policy-card h4 {
-            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-family: 'Fraunces', Georgia, serif;
             font-size: 1.15rem;
             color: var(--forest-deep);
-            font-variation-settings: 'WONK' 1, 'SOFT' 80;
+            /* Fraunces optical sizing */
             margin-bottom: 0.5rem;
         }
         .policy-card p {
@@ -442,6 +445,7 @@
     <!-- Footer -->
     <footer class="site-footer">
         <div class="footer-inner">
+            <p>Made in New York with too much coffee and QGIS.</p>
             <p>&copy; 2026 Erma Swartz</p>
             <div class="footer-links">
                 <a href="mailto:ermahswartz@gmail.com">Email</a>
@@ -467,7 +471,7 @@
 
         // Lightbox — click chart image to view full size
         const lightbox = document.createElement('div');
-        lightbox.style.cssText = 'display:none;position:fixed;inset:0;z-index:9999;background:rgba(26,58,42,0.92);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);justify-content:center;align-items:center;padding:2rem;cursor:pointer;';
+        lightbox.style.cssText = 'display:none;position:fixed;inset:0;z-index:9999;background:rgba(43,31,23,0.92);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);justify-content:center;align-items:center;padding:2rem;cursor:pointer;';
         lightbox.innerHTML = '<img style="max-width:90vw;max-height:90vh;border-radius:12px;box-shadow:0 20px 60px rgba(0,0,0,0.4);object-fit:contain;">';
         document.body.appendChild(lightbox);
         lightbox.addEventListener('click', () => { lightbox.style.display = 'none'; });

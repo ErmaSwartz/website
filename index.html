@@ -5,32 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Erma Swartz — Model / Map / Sense / Argue</title>
     <link rel="stylesheet" href="styles.css">
-    <meta name="description" content="Erma Swartz is an urban planner, data scientist, and designer working at the intersection of sustainability, spatial analysis, and the built environment.">
-    <meta property="og:title" content="Erma Swartz — Model / Map / Sense / Argue">
-    <meta property="og:description" content="Urban planner, data scientist, and designer building a more equitable and sustainable world.">
+    <meta name="description" content="I've built tools from the ground up — from a 3D-printed air quality sensor to spatial analyses of NYC's waste system — and modeled 57M tCO₂e in potential emissions reductions. Urban planner, data scientist, designer.">
+    <meta property="og:title" content="Erma Swartz — Urban Planner, Data Scientist, Designer">
+    <meta property="og:description" content="I've built tools from the ground up, from a 3D-printed air quality sensor to spatial analyses of NYC's waste system, and modeled 57M tCO₂e in potential emissions reductions.">
     <meta property="og:image" content="https://ermaswartz.com/images/og-thumbnail.png">
     <meta property="og:url" content="https://ermaswartz.com">
     <meta property="og:type" content="website">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content="https://ermaswartz.com/images/og-thumbnail.png">
     <style>
-        /* Discipline icons row */
-        .discipline-icons {
-            display: flex;
-            justify-content: center;
-            gap: 2.5rem;
-            margin-bottom: 2rem;
-            opacity: 0.5;
-        }
-        .discipline-icons svg {
-            width: 28px;
-            height: 28px;
-            stroke: var(--sage-light);
-            fill: none;
-            stroke-width: 1.5;
-            stroke-linecap: round;
-            stroke-linejoin: round;
-        }
         /* Hero stat */
         .hero-stats {
             display: flex;
@@ -38,32 +21,33 @@
             gap: 3rem;
             margin-top: 2.5rem;
             padding-top: 2rem;
-            border-top: 1px solid rgba(184, 197, 163, 0.2);
+            border-top: 1px solid rgba(224, 212, 192, 0.2);
         }
         .hero-stat {
             text-align: center;
         }
         .hero-stat-num {
-            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-family: 'Fraunces', Georgia, serif;
             font-size: 2rem;
             font-weight: 300;
-            color: var(--cream);
+            color: var(--paper);
             line-height: 1;
         }
         .hero-stat-label {
-            font-size: 0.72rem;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.7rem;
             font-weight: 500;
             letter-spacing: 0.1em;
             text-transform: uppercase;
-            color: var(--sage);
+            color: var(--clay);
             margin-top: 0.35rem;
         }
         /* Personal statement */
         .personal-statement {
-            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-family: 'Fraunces', Georgia, serif;
             font-style: italic;
             font-size: 1.25rem;
-            color: var(--forest-deep);
+            color: var(--cocoa);
             text-align: center;
             max-width: 600px;
             margin: 0 auto 1.5rem;
@@ -74,8 +58,9 @@
             display: inline-flex;
             align-items: center;
             gap: 0.35rem;
-            font-size: 0.75rem;
-            color: var(--moss);
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.72rem;
+            color: var(--clay);
             margin-top: 0.5rem;
             font-weight: 500;
         }
@@ -89,6 +74,9 @@
     </style>
 </head>
 <body>
+
+    <!-- Skip to content -->
+    <a href="#about" class="sr-only" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;z-index:9999;padding:0.5rem 1rem;background:var(--brick);color:var(--paper);font-size:0.9rem;border-radius:4px;text-decoration:none;" onfocus="this.style.left='1rem';this.style.top='1rem';this.style.width='auto';this.style.height='auto'" onblur="this.style.left='-9999px';this.style.width='1px';this.style.height='1px'">Skip to content</a>
 
     <!-- Navigation -->
     <nav class="site-nav" id="siteNav">
@@ -112,39 +100,29 @@
         <div class="hero-bg" style="background-image: url('images/hero-bg.jpg');"></div>
         <div class="hero-overlay"></div>
         <div class="hero-content">
-            <!-- Subtle discipline icons -->
-            <div class="discipline-icons">
-                <!-- Leaf / environmentalist -->
-                <svg viewBox="0 0 24 24"><path d="M17 8C8 10 5.9 16.17 3.82 21.34L5.71 22l1-2.3A4.49 4.49 0 008 20c4 0 8.5-3 9.8-10.2"/><path d="M2 2s7 2 10.5 2S22 2 22 2s-1 7-3.5 10.5S12 22 12 22"/></svg>
-                <!-- Chart / data scientist -->
-                <svg viewBox="0 0 24 24"><path d="M18 20V10M12 20V4M6 20v-6"/></svg>
-                <!-- Map pin / urban planner -->
-                <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                <!-- Grid / modeler -->
-                <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+
+            <h1>Erma Swartz</h1>
+
+            <div class="hero-verbs">
+                <a href="model.html">model</a>
+                <span class="verb-dot">&middot;</span>
+                <a href="map.html">map</a>
+                <span class="verb-dot">&middot;</span>
+                <a href="sense.html">sense</a>
+                <span class="verb-dot">&middot;</span>
+                <a href="argue.html">argue</a>
             </div>
 
-            <h1>
-                Erma Swartz
-                <span class="hero-rotate-wrap">
-                    I&nbsp;<span class="hero-rotate"><span class="hero-rotate-inner">
-                        <span>model.</span>
-                        <span>map.</span>
-                        <span>sense.</span>
-                        <span>argue.</span>
-                        <span>model.</span>
-                    </span></span>
-                </span>
-            </h1>
             <p class="hero-subtitle">
-                Urban planner, data scientist, and designer building a more
-                equitable and sustainable world — one dataset, one map, and one prototype at a time.
+                I've built tools from the ground up, from a 3D-printed air quality sensor
+                to spatial analyses of NYC's waste system, and used them to model
+                57M tCO&#8322;e in potential emissions reductions, translating complex
+                urban data into actionable planning insights.
             </p>
-            <div class="hero-methods">
-                <a href="model.html">Model</a>
-                <a href="map.html">Map</a>
-                <a href="sense.html">Sense</a>
-                <a href="argue.html">Argue</a>
+
+            <div class="hero-ctas">
+                <a href="#methods" class="hero-cta-primary">See the work</a>
+                <a href="#about" class="hero-cta-ghost">Read about me</a>
             </div>
 
         </div>
@@ -162,14 +140,14 @@
         <div class="about-content fade-in">
             <span class="section-label">Who I Am</span>
             <p class="personal-statement">
-                I care about cities because I care about people — and the systems
+                I care about cities because I care about people &mdash; and the systems
                 we build shape who gets to thrive in them.
             </p>
             <p>
                 I work where <strong>data meets design</strong> and <strong>policy meets place</strong>.
-                Over the past two years, I've built predictive models for transit equity,
+                I've built predictive models for transit equity,
                 mapped urban waste systems, 3D-printed a wearable air quality sensor,
-                and written a thesis on circular economy in construction — all in Python,
+                and written a thesis on circular economy in construction &mdash; all in Python,
                 all grounded in spatial evidence, all aimed at making cities more just.
             </p>
         </div>
@@ -186,7 +164,7 @@
     </div>
 
     <!-- Methods Grid -->
-    <section class="section">
+    <section class="section" id="methods">
         <div class="section-inner">
             <div class="section-header fade-in">
                 <span class="section-label">What I Do</span>
@@ -200,13 +178,13 @@
                     <div class="method-card-img-wrap">
                         <img class="method-card-img"
                              src="images/ml-co2-map.png"
-                             alt="CO2 emissions change map produced with machine learning"
+                             alt="Global CO2 emissions change map produced with machine learning"
                              loading="lazy">
                     </div>
                     <div class="method-card-body">
                         <span class="method-card-tag">Model</span>
-                        <h3>Predict & Simulate</h3>
-                        <p>Random forests, regressions, and scenario simulations — translating complexity into forecasts that inform real decisions.</p>
+                        <h3>Predict &amp; Simulate</h3>
+                        <p>I run random forests and regressions until the city stops being a mystery.</p>
                         <span class="method-card-github"><svg viewBox="0 0 24 24"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></svg> Python &middot; scikit-learn</span>
                     </div>
                 </a>
@@ -215,13 +193,13 @@
                     <div class="method-card-img-wrap">
                         <img class="method-card-img"
                              src="images/gis-recycling-income.png"
-                             alt="NYC median income and recycling rates map"
+                             alt="NYC median income and recycling rates choropleth"
                              loading="lazy">
                     </div>
                     <div class="method-card-body">
                         <span class="method-card-tag">Map</span>
                         <h3>Reveal Spatial Patterns</h3>
-                        <p>GIS analysis, interactive choropleths, and scrollytelling — making invisible geographies legible and actionable.</p>
+                        <p>GIS, interactive choropleths, and scrollytelling &mdash; making invisible geographies legible.</p>
                         <span class="method-card-github"><svg viewBox="0 0 24 24"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></svg> GeoPandas &middot; Folium &middot; PySAL</span>
                     </div>
                 </a>
@@ -230,13 +208,13 @@
                     <div class="method-card-img-wrap">
                         <img class="method-card-img"
                              src="images/lungs-printed.png"
-                             alt="3D-printed lung sensor housing — custom-built environmental sensor"
+                             alt="3D-printed lung-shaped ozone sensor, custom-built wearable"
                              loading="lazy">
                     </div>
                     <div class="method-card-body">
                         <span class="method-card-tag">Sense</span>
                         <h3>Build, Wear, Measure</h3>
-                        <p>I designed, 3D-printed, and wore a lung-shaped ozone sensor to measure what the city does to your body. Then I modeled the data.</p>
+                        <p>I 3D-printed a pair of lungs, wired them to an ozone sensor, and walked around Brooklyn. The data was bleak.</p>
                         <span class="method-card-github"><svg viewBox="0 0 24 24"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></svg> ESP32 &middot; Rhino &middot; Python</span>
                     </div>
                 </a>
@@ -245,13 +223,13 @@
                     <div class="method-card-img-wrap">
                         <img class="method-card-img"
                              src="images/circularnyc.png"
-                             alt="Circular economy system diagram for NYC"
+                             alt="Circular economy system diagram for NYC construction"
                              loading="lazy">
                     </div>
                     <div class="method-card-body">
                         <span class="method-card-tag">Argue</span>
-                        <h3>Research & Persuade</h3>
-                        <p>A year-long thesis on circular economy in NYC construction — turning spatial analysis into policy recommendations worth 57M tCO&#8322;e.</p>
+                        <h3>Research &amp; Persuade</h3>
+                        <p>A year-long thesis turning spatial analysis into policy recommendations worth 57M tCO&#8322;e.</p>
                         <span class="method-card-github"><svg viewBox="0 0 24 24"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></svg> Python &middot; statsmodels</span>
                     </div>
                 </a>
@@ -268,7 +246,7 @@
     </div>
 
     <!-- Skills -->
-    <section class="section" style="background: var(--cream);">
+    <section class="section" style="background: var(--paper);">
         <div class="section-inner">
             <div class="section-header fade-in">
                 <span class="section-label">Toolkit</span>
@@ -277,42 +255,42 @@
 
             <div class="skills-grid fade-in">
                 <div class="skill-group">
-                    <h3>Data Science & Modeling</h3>
+                    <h3>Data Science &amp; Modeling</h3>
                     <ul>
                         <li>Python (pandas, NumPy, scikit-learn)</li>
                         <li>Machine Learning (Random Forest, XGBoost)</li>
                         <li>Econometrics (OLS, statsmodels)</li>
-                        <li>Scenario & Optimization Modeling</li>
+                        <li>Scenario &amp; Optimization Modeling</li>
                         <li>Jupyter Notebooks</li>
                     </ul>
                 </div>
                 <div class="skill-group">
-                    <h3>GIS & Spatial Analysis</h3>
+                    <h3>GIS &amp; Spatial Analysis</h3>
                     <ul>
                         <li>ArcGIS Pro</li>
-                        <li>GeoPandas & PySAL</li>
-                        <li>Folium & Plotly (interactive maps)</li>
+                        <li>GeoPandas &amp; PySAL</li>
+                        <li>Folium &amp; Plotly (interactive maps)</li>
                         <li>Spatial Statistics (Moran's I, LISA)</li>
                         <li>Cartographic Composition</li>
                     </ul>
                 </div>
                 <div class="skill-group">
-                    <h3>Design & Fabrication</h3>
+                    <h3>Design &amp; Fabrication</h3>
                     <ul>
-                        <li>Adobe Illustrator & Photoshop</li>
+                        <li>Adobe Illustrator &amp; Photoshop</li>
                         <li>Adobe InDesign</li>
-                        <li>Rhino 3D & 3D Printing</li>
+                        <li>Rhino 3D &amp; 3D Printing</li>
                         <li>Data Visualization</li>
                         <li>Sensor Prototyping (ESP32)</li>
                     </ul>
                 </div>
                 <div class="skill-group">
-                    <h3>Research & Communication</h3>
+                    <h3>Research &amp; Communication</h3>
                     <ul>
-                        <li>Policy Analysis & Writing</li>
+                        <li>Policy Analysis &amp; Writing</li>
                         <li>Qualitative Interviews</li>
                         <li>HTML / CSS / JavaScript</li>
-                        <li>Git & GitHub</li>
+                        <li>Git &amp; GitHub</li>
                         <li>Environmental Sensing</li>
                     </ul>
                 </div>
@@ -325,14 +303,14 @@
         <div class="section-inner fade-in">
             <span class="section-label">Get in Touch</span>
             <h2 style="margin-bottom: 1.5rem;">Let's Talk</h2>
-            <p style="max-width: 500px; margin: 0 auto 2rem; color: var(--text-light); font-size: 1.05rem;">
+            <p style="max-width: 500px; margin: 0 auto 2rem; color: var(--clay); font-size: 1.05rem;">
                 I'm looking for opportunities in urban planning, data science,
                 sustainability consulting, and design. If my work resonates,
                 I'd love to hear from you.
             </p>
             <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
                 <a href="mailto:ermahswartz@gmail.com" class="resume-btn">Email Me</a>
-                <a href="Erma_Swartz_Resume.pdf" class="resume-btn" style="background: var(--earth);" target="_blank">Download Resume</a>
+                <a href="Erma_Swartz_Resume.pdf" class="resume-btn" style="background: var(--espresso);" target="_blank">Download Resume</a>
             </div>
         </div>
     </section>
@@ -340,6 +318,7 @@
     <!-- Footer -->
     <footer class="site-footer">
         <div class="footer-inner">
+            <p>Made in New York with too much coffee and QGIS.</p>
             <p>&copy; 2026 Erma Swartz</p>
             <div class="footer-links">
                 <a href="mailto:ermahswartz@gmail.com">Email</a>
