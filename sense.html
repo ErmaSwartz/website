@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sense — Erma Swartz</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="site-nav" id="siteNav">
+        <div class="nav-inner">
+            <a href="index.html" class="nav-name">Erma Swartz</a>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="model.html">Model</a></li>
+                <li><a href="map.html">Map</a></li>
+                <li><a href="sense.html" class="active">Sense</a></li>
+                <li><a href="argue.html">Argue</a></li>
+                <li><a href="index.html#about">About</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Method Hero -->
+    <section class="method-hero">
+        <div style="max-width: 700px; margin: 0 auto; padding: 0 2rem;">
+            <span class="section-label" style="color: var(--sage);">Sense</span>
+            <h1>Measure & Experience</h1>
+            <p>
+                Data doesn't have to come from a database. Sometimes the most
+                important signals come from building a sensor, strapping it on,
+                and walking through a neighborhood — letting the body become
+                an instrument of urban research.
+            </p>
+        </div>
+    </section>
+
+    <div class="pull-quote fade-in">
+        What does the city do to your lungs? To your heart rate? The data is in your body — you just have to listen.
+    </div>
+
+    <!-- Phase 1: Design & Fabrication -->
+    <div class="project-entry fade-in">
+        <div class="project-inner">
+            <div class="project-img-wrap">
+                <img src="images/prototype-wristband.png"
+                     alt="Wearable sensor wristband prototype design — silicone band with embedded sensor"
+                     loading="lazy">
+            </div>
+            <div class="project-text">
+                <span class="project-context">Design & Fabrication &middot; Spring 2025</span>
+                <h3>Building the Sensor</h3>
+                <p>
+                    This wasn't an off-the-shelf project. I designed a wearable sensing
+                    device from scratch — a silicone wristband housing an ozone sensor,
+                    heart rate monitor, GPS module, and ESP32 microcontroller. The housing
+                    was 3D modeled in Rhino as a pair of lungs and printed to hold all
+                    components in a compact, wearable form factor.
+                </p>
+                <p>
+                    The goal: simultaneously measure what the city's air does to
+                    your body, in real time, as you move through it.
+                </p>
+                <div class="project-tools">
+                    <span>Rhino 3D</span>
+                    <span>3D Printing</span>
+                    <span>ESP32</span>
+                    <span>Ozone Sensor</span>
+                    <span>Heart Rate Monitor</span>
+                    <span>GPS</span>
+                </div>
+            </div>
+        </div>
+        <div style="max-width: 1100px; margin: 2rem auto 0;">
+            <div class="project-gallery">
+                <img src="images/lungs-rhino.png"
+                     alt="3D lung model in Rhino — wireframe view of sensor housing" loading="lazy">
+                <img src="images/lungs-printed.png"
+                     alt="3D-printed lung sensor housing held in hands — final fabricated prototype" loading="lazy">
+                <img src="images/assembling-sensors.png"
+                     alt="Assembling sensor electronics on site" loading="lazy">
+            </div>
+            <div class="project-gallery" style="margin-top: 1rem;">
+                <img src="images/hardware-process.png"
+                     alt="Hardware development process — from sketch to Rhino model to 3D print to final prototype"
+                     loading="lazy"
+                     style="grid-column: 1 / -1; height: auto; max-height: 300px; object-fit: contain; background: white;">
+            </div>
+        </div>
+    </div>
+
+    <!-- Phase 2: Data Collection -->
+    <div class="project-entry fade-in">
+        <div class="project-inner">
+            <div class="project-img-wrap">
+                <img src="images/sensing-location.png"
+                     alt="Ozone and heart rate data plotted by location"
+                     loading="lazy">
+            </div>
+            <div class="project-text">
+                <span class="project-context">Data Collection &middot; Spring 2025</span>
+                <h3>"Sensing Lungs": Into the Field</h3>
+                <p>
+                    Wearing the sensor across different urban environments — indoors,
+                    on campus, on the street, underground — I collected paired biometric
+                    and environmental data. The GPS tracked location while the ozone
+                    sensor and heart rate monitor recorded simultaneous readings,
+                    creating a dataset that links where you are to what the air is
+                    doing to your body.
+                </p>
+                <div class="project-tools">
+                    <span>Wearable Sensors</span>
+                    <span>GPS Tracking</span>
+                    <span>Field Data Collection</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Phase 3: Analysis -->
+    <div class="project-entry fade-in">
+        <div class="project-inner">
+            <div class="project-img-wrap">
+                <img src="images/sensing-movement.png"
+                     alt="Movement-factored ozone and cardiac response after 15 minutes exposure"
+                     loading="lazy">
+            </div>
+            <div class="project-text">
+                <span class="project-context">Analysis &middot; Spring 2025</span>
+                <h3>From Body to Data to Evidence</h3>
+                <p>
+                    OLS regression and polynomial models quantified the relationship
+                    between ozone exposure and cardiac response, controlling for movement
+                    and location. The results showed statistically significant heart rate
+                    elevation during high-ozone outdoor exposure — particularly after
+                    sustained 15-minute periods.
+                </p>
+                <p>
+                    Location-specific analysis confirmed that ozone-cardiac correlations
+                    were strongest at street level and weakest indoors, validating the
+                    sensing methodology against known exposure gradients.
+                </p>
+                <div class="project-tools">
+                    <span>Python</span>
+                    <span>OLS Regression</span>
+                    <span>Polynomial Models</span>
+                    <span>PCA</span>
+                </div>
+            </div>
+        </div>
+        <div style="max-width: 1100px; margin: 2rem auto 0;">
+            <div class="charts-grid">
+                <div class="chart-card-global">
+                    <img src="images/sensing-ols.png"
+                         alt="OLS actual vs predicted heart rate" loading="lazy">
+                    <div class="chart-info">
+                        <h4>Model Accuracy</h4>
+                        <p>OLS regression predicting heart rate from ozone exposure. The model captures the upward trend — higher ozone correlates with elevated cardiac response, especially after 15+ minutes of exposure.</p>
+                    </div>
+                </div>
+                <div class="chart-card-global">
+                    <img src="images/sensing-locationdep.png"
+                         alt="Location-dependent analysis" loading="lazy">
+                    <div class="chart-info">
+                        <h4>Location Matters</h4>
+                        <p>Ozone-cardiac correlations are strongest at street level and weakest indoors — validating the sensor against known exposure gradients and confirming that location context is critical.</p>
+                    </div>
+                </div>
+                <div class="chart-card-global">
+                    <img src="images/sensing-pca.png"
+                         alt="PCA of sensing data" loading="lazy">
+                    <div class="chart-info">
+                        <h4>PCA Decomposition</h4>
+                        <p>Principal component analysis separates movement-driven heart rate variation from ozone-driven variation, isolating the environmental signal from physical activity noise.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="leaf-divider">&#9753;</div>
+
+    <div class="cta-links">
+        <p>
+            Sensing data feeds into <a href="model.html">predictive models</a>,
+            gets plotted on <a href="map.html">maps</a>,
+            and strengthens <a href="argue.html">policy arguments</a> for environmental justice.
+        </p>
+    </div>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <p>&copy; 2026 Erma Swartz</p>
+            <div class="footer-links">
+                <a href="mailto:ermahswartz@gmail.com">Email</a>
+                <a href="https://github.com/ErmaSwartz" target="_blank" rel="noopener">GitHub</a>
+                <a href="https://linkedin.com" target="_blank" rel="noopener">LinkedIn</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('navToggle').addEventListener('click', () =>
+            document.getElementById('navLinks').classList.toggle('open'));
+        window.addEventListener('scroll', () =>
+            document.getElementById('siteNav').classList.toggle('scrolled', window.scrollY > 10));
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        // Lightbox for chart images
+        const lb = document.createElement('div');
+        lb.className = 'lightbox-global';
+        lb.innerHTML = '<img>';
+        document.body.appendChild(lb);
+        lb.addEventListener('click', () => lb.classList.remove('active'));
+        document.addEventListener('keydown', (e) => { if (e.key === 'Escape') lb.classList.remove('active'); });
+        document.querySelectorAll('.chart-card-global img').forEach(img => {
+            img.addEventListener('click', () => {
+                lb.querySelector('img').src = img.src;
+                lb.classList.add('active');
+            });
+        });
+    </script>
+
+</body>
+</html>

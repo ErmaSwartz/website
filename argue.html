@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Argue — Erma Swartz</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Expandable chart cards */
+        .chart-card {
+            background: white;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .chart-card:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateY(-2px);
+        }
+        .chart-card img {
+            width: 100%;
+            height: 220px;
+            object-fit: contain;
+            object-position: center;
+            background: #fafaf8;
+            padding: 0.5rem;
+            transition: height 0.4s ease;
+        }
+        .chart-card.expanded img {
+            height: auto;
+            max-height: none;
+            padding: 1rem;
+        }
+        .chart-card-body {
+            padding: 0.85rem 1.1rem;
+            border-top: 1px solid var(--sage-light);
+        }
+        .chart-card-body h4 {
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-size: 0.95rem;
+            color: var(--forest-deep);
+            font-variation-settings: 'WONK' 1, 'SOFT' 80;
+            margin-bottom: 0.25rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .chart-card-body h4::after {
+            content: '+';
+            font-family: 'DM Sans', sans-serif;
+            font-size: 1.2rem;
+            color: var(--moss);
+            transition: transform 0.3s ease;
+            flex-shrink: 0;
+            margin-left: 0.5rem;
+        }
+        .chart-card.expanded .chart-card-body h4::after {
+            content: '\2212';
+        }
+        .chart-card-desc {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, opacity 0.3s ease;
+            opacity: 0;
+        }
+        .chart-card.expanded .chart-card-desc {
+            max-height: 300px;
+            opacity: 1;
+        }
+        .chart-card-desc p {
+            font-size: 0.88rem;
+            color: var(--text-light);
+            line-height: 1.65;
+            padding-top: 0.5rem;
+        }
+        /* Findings grid — 2 columns for better visibility */
+        .charts-expandable {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        @media (max-width: 680px) {
+            .charts-expandable { grid-template-columns: 1fr; }
+        }
+        /* Smaller methodology image */
+        .methods-diagram {
+            max-width: 500px;
+            margin: 1.5rem auto;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-sm);
+        }
+        /* Policy recommendation cards */
+        .policy-card {
+            background: white;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            padding: 1.5rem;
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 1.5rem;
+            align-items: center;
+        }
+        .policy-card + .policy-card {
+            margin-top: 1.5rem;
+        }
+        .policy-card:nth-child(even) {
+            direction: rtl;
+        }
+        .policy-card:nth-child(even) > * {
+            direction: ltr;
+        }
+        .policy-card img {
+            width: 100%;
+            border-radius: var(--radius);
+        }
+        .policy-card h4 {
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-size: 1.15rem;
+            color: var(--forest-deep);
+            font-variation-settings: 'WONK' 1, 'SOFT' 80;
+            margin-bottom: 0.5rem;
+        }
+        .policy-card p {
+            font-size: 0.92rem;
+            color: var(--text-body);
+            line-height: 1.7;
+        }
+        @media (max-width: 680px) {
+            .policy-card { grid-template-columns: 1fr; }
+            .policy-card:nth-child(even) { direction: ltr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="site-nav" id="siteNav">
+        <div class="nav-inner">
+            <a href="index.html" class="nav-name">Erma Swartz</a>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="model.html">Model</a></li>
+                <li><a href="map.html">Map</a></li>
+                <li><a href="sense.html">Sense</a></li>
+                <li><a href="argue.html" class="active">Argue</a></li>
+                <li><a href="index.html#about">About</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Method Hero -->
+    <section class="method-hero">
+        <div style="max-width: 700px; margin: 0 auto; padding: 0 2rem;">
+            <span class="section-label" style="color: var(--sage);">Argue</span>
+            <h1>Research & Persuade</h1>
+            <p>
+                The strongest arguments are built on evidence, structured by analysis,
+                and sharpened by design. My research bridges data science and policy —
+                turning spatial analysis and predictive modeling into actionable
+                recommendations for a more circular, equitable built environment.
+            </p>
+        </div>
+    </section>
+
+    <!-- ============================================
+         THESIS DEEP-DIVE
+         ============================================ -->
+
+    <!-- Thesis Cover & Intro -->
+    <div class="project-entry-full fade-in" style="background: var(--cream); padding-top: 5rem;">
+        <div class="thesis-hero">
+            <img src="images/thesis-cover.png"
+                 alt="Thesis cover page"
+                 loading="lazy">
+            <span class="section-label">Thesis &middot; 2025–2026</span>
+            <h2>Circular Economy, Embodied Carbon & Construction in NYC</h2>
+            <p>
+                A year-long research project investigating how circular economy
+                principles could reduce embodied carbon in New York City's
+                construction sector — combining quantitative modeling, policy
+                analysis, stakeholder interviews, and design communication.
+            </p>
+        </div>
+    </div>
+
+    <!-- Thesis: Problem -->
+    <div class="project-entry-full fade-in">
+        <div class="project-full-inner">
+            <h3>The Problem</h3>
+            <p>
+                Construction is responsible for a massive share of global carbon
+                emissions — not just from building operations, but from the embodied
+                carbon locked into materials themselves. Concrete, steel, and glass
+                carry enormous carbon footprints before a building ever opens its doors.
+                Yet most climate policy focuses on operational energy, leaving embodied
+                carbon largely unaddressed.
+            </p>
+            <p>
+                NYC, with its relentless pace of construction, is both a major contributor
+                to this problem and a potential laboratory for solutions. What if the city
+                adopted circular economy principles — reusing materials, substituting
+                lower-carbon alternatives, diverting construction waste from landfills?
+            </p>
+            <img src="images/diagrams-01.png"
+                 alt="Embodied carbon in construction — building within circular economy framework"
+                 loading="lazy">
+        </div>
+    </div>
+
+    <!-- Thesis: Methodology (compact) -->
+    <div class="project-entry-full fade-in" style="background: var(--cream);">
+        <div class="project-full-inner">
+            <h3>Methodology</h3>
+            <p>
+                The research combined three analytical streams: <strong>quantitative modeling</strong>
+                of embodied carbon across building types using OLS regression and Random
+                Forest; <strong>scenario analysis</strong> projecting cumulative carbon savings
+                under four policy pathways over 20 years; and <strong>qualitative interviews</strong>
+                with construction industry practitioners and policymakers to ground the
+                models in real-world feasibility.
+            </p>
+            <p>
+                The data pipeline processed building-level records from NYC DOB permits,
+                material specifications from EPDs (Environmental Product Declarations),
+                and spatial data from city planning datasets — all cleaned, joined, and
+                analyzed in Python using pandas, GeoPandas, scikit-learn, and statsmodels.
+            </p>
+            <img src="images/methods-diagram.png"
+                 alt="Research methodology diagram"
+                 loading="lazy">
+        </div>
+    </div>
+
+    <!-- Thesis: FINDINGS — centered, prominent -->
+    <div class="project-entry-full fade-in">
+        <div class="project-full-inner">
+            <div style="text-align: center; margin-bottom: 2rem;">
+                <span class="section-label">Key Findings</span>
+                <h3 style="font-size: 1.75rem; margin-top: 0.5rem;">What Drives Embodied Carbon?</h3>
+                <p style="max-width: 600px; margin: 0.75rem auto 0; color: var(--text-light);">
+                    The modeling revealed significant variation in embodied carbon intensity
+                    across building types, structural systems, and material choices.
+                    Click any chart to expand and read the findings.
+                </p>
+            </div>
+
+            <div class="charts-expandable">
+
+                <div class="chart-card" onclick="toggleChart(this)">
+                    <img src="images/thesis-material_bar_chart.png"
+                         alt="Material-level embodied carbon comparison" loading="lazy">
+                    <div class="chart-card-body">
+                        <h4>Materials Comparison</h4>
+                        <div class="chart-card-desc">
+                            <p>Embodied carbon varies dramatically by material. Steel and concrete dominate emissions, but the specific mix matters — low-carbon concrete substitutes can reduce material-level emissions by 30-40% without compromising structural performance.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="chart-card" onclick="toggleChart(this)">
+                    <img src="images/thesis-rf_feature_importance.png"
+                         alt="Random Forest feature importance" loading="lazy">
+                    <div class="chart-card-body">
+                        <h4>Feature Importance</h4>
+                        <div class="chart-card-desc">
+                            <p>Random Forest analysis reveals which building characteristics most influence embodied carbon intensity. Floor area and structural system dominate, suggesting that design-phase decisions have the greatest impact on lifecycle emissions.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="chart-card" onclick="toggleChart(this)">
+                    <img src="images/thesis-eci_by_structure.png"
+                         alt="Embodied carbon by structural system" loading="lazy">
+                    <div class="chart-card-body">
+                        <h4>Structural System Impact</h4>
+                        <div class="chart-card-desc">
+                            <p>Structural system choice is one of the strongest predictors of total embodied carbon. Steel-frame buildings consistently show higher ECI than concrete or hybrid systems, moderated by building height and floor area.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="chart-card" onclick="toggleChart(this)">
+                    <img src="images/thesis-concrete_mix_comparison.png"
+                         alt="Concrete mix design carbon comparison" loading="lazy">
+                    <div class="chart-card-body">
+                        <h4>Concrete Mix Design</h4>
+                        <div class="chart-card-desc">
+                            <p>Small changes in cement content produce outsized carbon reductions. Blends using fly ash, slag, and supplementary cementitious materials represent the single highest-leverage intervention identified in the analysis.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="chart-card" onclick="toggleChart(this)">
+                    <img src="images/thesis-eci_by_height.png"
+                         alt="Embodied carbon intensity by building height" loading="lazy">
+                    <div class="chart-card-body">
+                        <h4>Height vs. Carbon</h4>
+                        <div class="chart-card-desc">
+                            <p>Embodied carbon intensity increases non-linearly with building height. Taller buildings require more structural material per square foot, but the relationship plateaus above ~30 stories.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="chart-card" onclick="toggleChart(this)">
+                    <img src="images/thesis-ols_coefficients_final.png"
+                         alt="OLS regression coefficients" loading="lazy">
+                    <div class="chart-card-body">
+                        <h4>Regression Coefficients</h4>
+                        <div class="chart-card-desc">
+                            <p>OLS regression coefficients quantify the marginal effect of each building characteristic on embodied carbon. The model identifies which variables have statistically significant relationships with carbon intensity, controlling for all other factors.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Thesis: Policy Recommendations -->
+    <div class="project-entry-full fade-in" style="background: var(--cream);">
+        <div class="project-full-inner">
+            <div style="text-align: center; margin-bottom: 2.5rem;">
+                <span class="section-label">Policy Recommendations</span>
+                <h3 style="font-size: 1.75rem; margin-top: 0.5rem;">What Should NYC Do?</h3>
+                <p style="max-width: 600px; margin: 0.75rem auto 0; color: var(--text-light);">
+                    The analysis modeled four policy scenarios — from procurement reform
+                    to subsidy programs to hybrid regulation — projecting their impact
+                    on market transformation and cumulative carbon savings over 20 years.
+                </p>
+            </div>
+
+            <div class="policy-card">
+                <img src="images/thesis-policy_coverage_emissions_clean.png"
+                     alt="Embodied carbon emissions by policy coverage" loading="lazy">
+                <div>
+                    <h4>The Policy Gap</h4>
+                    <p>
+                        Current policy (EO23) covers only a fraction of NYC's construction
+                        emissions. The vast majority — 32.8 million metric tons from private
+                        sector construction — falls outside existing regulation. Closing this
+                        gap requires extending embodied carbon requirements beyond public projects.
+                    </p>
+                </div>
+            </div>
+
+            <div class="policy-card">
+                <img src="images/thesis-policy_scenarios.png"
+                     alt="Market transformation under policy scenarios" loading="lazy">
+                <div>
+                    <h4>Market Transformation Scenarios</h4>
+                    <p>
+                        The hybrid approach — combining subsidies with regulation — achieves
+                        40% market adoption of circular practices within 20 years, compared to
+                        just 10% under baseline conditions. Subsidies alone reach 25%, while
+                        procurement reform reaches 15%.
+                    </p>
+                </div>
+            </div>
+
+            <div class="policy-card">
+                <img src="images/thesis-cumulative_emissions_savings.png"
+                     alt="Cumulative carbon savings under policy scenarios" loading="lazy">
+                <div>
+                    <h4>Cumulative Carbon Savings</h4>
+                    <p>
+                        The hybrid scenario could save 57 million tCO&#8322;e over 20 years —
+                        nearly 4x the baseline trajectory. Even the more modest procurement-only
+                        approach yields 19 million tCO&#8322;e in savings, demonstrating that
+                        any policy action significantly outperforms inaction.
+                    </p>
+                </div>
+            </div>
+
+            <div class="policy-card">
+                <img src="images/thesis-market_viability_path.png"
+                     alt="Path to circular construction market viability" loading="lazy">
+                <div>
+                    <h4>Path to Market Viability</h4>
+                    <p>
+                        The ~20% viability threshold — where circular practices become
+                        self-sustaining — is reached within 5 years under the hybrid scenario
+                        but never under baseline conditions. This suggests that early policy
+                        intervention can create lasting market transformation, while delay
+                        locks in decades of avoidable emissions.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Thesis: Conclusions -->
+    <div class="project-entry-full fade-in">
+        <div class="project-full-inner" style="text-align: center;">
+            <h3 style="font-size: 1.5rem;">What This Means</h3>
+            <p style="max-width: 650px; margin: 1rem auto;">
+                Circular economy principles are not just aspirational — they are
+                quantifiable, modelable, and policy-ready. By connecting material science,
+                spatial analysis, and policy design, this research offers a framework
+                for cities to address embodied carbon with the same rigor they apply
+                to operational energy.
+            </p>
+            <div class="project-tools" style="margin-top: 1.5rem; justify-content: center;">
+                <span>Python</span>
+                <span>Random Forest</span>
+                <span>OLS Regression</span>
+                <span>Scenario Modeling</span>
+                <span>GeoPandas</span>
+                <span>Interviews</span>
+                <span>Adobe Illustrator</span>
+                <span>Policy Analysis</span>
+            </div>
+            <div style="margin-top: 2rem;">
+                <a href="Erma_Swartz_Thesis.pdf" class="resume-btn" target="_blank" style="display: inline-block;">
+                    Download Full Thesis (PDF)
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="leaf-divider">&#9753;</div>
+
+    <div class="cta-links">
+        <p>
+            This research draws on every practice:
+            <a href="model.html">predictive models</a> quantify impact,
+            <a href="map.html">maps</a> reveal spatial patterns,
+            and <a href="sense.html">sensing</a> grounds it in lived experience.
+        </p>
+    </div>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <p>&copy; 2026 Erma Swartz</p>
+            <div class="footer-links">
+                <a href="mailto:ermahswartz@gmail.com">Email</a>
+                <a href="https://github.com/ErmaSwartz" target="_blank" rel="noopener">GitHub</a>
+                <a href="https://linkedin.com" target="_blank" rel="noopener">LinkedIn</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('navToggle').addEventListener('click', () =>
+            document.getElementById('navLinks').classList.toggle('open'));
+        window.addEventListener('scroll', () =>
+            document.getElementById('siteNav').classList.toggle('scrolled', window.scrollY > 10));
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        function toggleChart(card) {
+            card.classList.toggle('expanded');
+        }
+
+        // Lightbox — click chart image to view full size
+        const lightbox = document.createElement('div');
+        lightbox.style.cssText = 'display:none;position:fixed;inset:0;z-index:9999;background:rgba(26,58,42,0.92);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);justify-content:center;align-items:center;padding:2rem;cursor:pointer;';
+        lightbox.innerHTML = '<img style="max-width:90vw;max-height:90vh;border-radius:12px;box-shadow:0 20px 60px rgba(0,0,0,0.4);object-fit:contain;">';
+        document.body.appendChild(lightbox);
+        lightbox.addEventListener('click', () => { lightbox.style.display = 'none'; });
+        document.addEventListener('keydown', (e) => { if (e.key === 'Escape') lightbox.style.display = 'none'; });
+
+        document.querySelectorAll('.chart-card img, .policy-card img').forEach(img => {
+            img.style.cursor = 'zoom-in';
+            img.addEventListener('click', (e) => {
+                e.stopPropagation();
+                lightbox.querySelector('img').src = img.src;
+                lightbox.style.display = 'flex';
+            });
+        });
+    </script>
+
+</body>
+</html>

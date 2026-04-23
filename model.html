@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Model — Erma Swartz</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Code snippet styling */
+        .code-snippet {
+            background: #1a2a1f;
+            border-radius: var(--radius-lg);
+            padding: 1.5rem;
+            margin-top: 1.25rem;
+            overflow-x: auto;
+            box-shadow: var(--shadow-md);
+        }
+        .code-snippet pre {
+            font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+            font-size: 0.78rem;
+            line-height: 1.7;
+            color: #b8c5a3;
+            margin: 0;
+            white-space: pre;
+        }
+        .code-snippet .comment { color: #6a7a5e; }
+        .code-snippet .keyword { color: #7eb89e; }
+        .code-snippet .string { color: #d4a76a; }
+        .code-snippet .func { color: #8ab4d6; }
+        .code-snippet-label {
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: #6a7a5e;
+            margin-bottom: 0.75rem;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="site-nav" id="siteNav">
+        <div class="nav-inner">
+            <a href="index.html" class="nav-name">Erma Swartz</a>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="model.html" class="active">Model</a></li>
+                <li><a href="map.html">Map</a></li>
+                <li><a href="sense.html">Sense</a></li>
+                <li><a href="argue.html">Argue</a></li>
+                <li><a href="index.html#about">About</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Method Hero -->
+    <section class="method-hero">
+        <div style="max-width: 700px; margin: 0 auto; padding: 0 2rem;">
+            <span class="section-label" style="color: var(--sage);">Model</span>
+            <h1>Predict & Simulate</h1>
+            <p>
+                I build models not to simplify reality but to ask better questions of it.
+                Regressions, random forests, and scenario simulations become tools for
+                testing futures — what if we invested here, reduced there, expanded this?
+            </p>
+        </div>
+    </section>
+
+    <div class="pull-quote fade-in">
+        A model is a conversation with uncertainty — the point isn't to be right, it's to know what you're betting on.
+    </div>
+
+    <!-- Project 1: Machine Learning — CO2 Emissions -->
+    <div class="project-entry fade-in">
+        <div class="project-inner">
+            <div class="project-img-wrap">
+                <img src="images/ml-co2-map.png"
+                     alt="Global CO2 emissions change map 1995-2020"
+                     loading="lazy">
+            </div>
+            <div class="project-text">
+                <span class="project-context">Machine Learning &middot; Spring 2025</span>
+                <h3>Predicting Global CO2 Emissions</h3>
+                <p>
+                    Which countries are on track to blow past their emissions targets, and why?
+                    I trained Random Forest and XGBoost models on 25 years of country-level data
+                    to predict per-capita CO2 trajectories — then used feature importance analysis
+                    to identify the socioeconomic and energy-mix variables that actually drive
+                    national emissions profiles.
+                </p>
+                <p>
+                    <strong>So what:</strong> The model revealed that energy mix composition
+                    and GDP growth rate explain more emissions variance than population or
+                    industrialization level — suggesting that energy policy, not demographic
+                    change, is the key lever.
+                </p>
+                <div class="project-tools">
+                    <span>Python</span>
+                    <span>scikit-learn</span>
+                    <span>Random Forest</span>
+                    <span>XGBoost</span>
+                    <span>pandas</span>
+                </div>
+                <div class="code-snippet">
+                    <span class="code-snippet-label">feature importance analysis</span>
+<pre><span class="keyword">from</span> sklearn.ensemble <span class="keyword">import</span> RandomForestRegressor
+
+<span class="comment"># Train RF on 25 years of country-level emissions data</span>
+rf = RandomForestRegressor(n_estimators=<span class="string">500</span>, max_depth=<span class="string">12</span>)
+rf.<span class="func">fit</span>(X_train, y_train)
+
+<span class="comment"># Extract and rank feature importances</span>
+importances = pd.<span class="func">Series</span>(
+    rf.feature_importances_, index=feature_names
+).<span class="func">sort_values</span>(ascending=<span class="string">False</span>)
+
+<span class="comment"># Top predictor: energy_mix_fossil (0.31)</span>
+<span class="comment"># R² = 0.89 on held-out test set</span></pre>
+                </div>
+            </div>
+        </div>
+        <div style="max-width: 1100px; margin: 2rem auto 0;">
+            <div class="charts-grid">
+                <div class="chart-card-global">
+                    <img src="images/ml-features.png"
+                         alt="Top 15 feature importances" loading="lazy">
+                    <div class="chart-info">
+                        <h4>Feature Importance</h4>
+                        <p>Energy mix and GDP growth rate dominate — demographic variables like population barely register, challenging conventional assumptions about what drives emissions.</p>
+                    </div>
+                </div>
+                <div class="chart-card-global">
+                    <img src="images/ml-actual-predicted.png"
+                         alt="Actual vs predicted emissions" loading="lazy">
+                    <div class="chart-info">
+                        <h4>Model Validation</h4>
+                        <p>Actual vs. predicted CO2 emissions on held-out test data. Tight clustering along the diagonal confirms strong predictive accuracy across diverse country profiles.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Project 2: Citi Bike Optimization -->
+    <div class="project-entry fade-in">
+        <div class="project-inner">
+            <div class="project-img-wrap">
+                <img src="images/citibike-stations.png"
+                     alt="Top Citi Bike stations by trip volume"
+                     loading="lazy">
+            </div>
+            <div class="project-text">
+                <span class="project-context">Urban Tech &middot; Spring 2025</span>
+                <h3>Citi Bike Expansion Optimization</h3>
+                <p>
+                    Where should NYC put 20 new Citi Bike stations to maximize ridership
+                    while improving equity? I analyzed 87MB of trip data to model demand
+                    patterns, then built an optimization framework balancing projected
+                    ridership against access gaps in underserved neighborhoods.
+                </p>
+                <p>
+                    <strong>So what:</strong> The equity-weighted model shifted 8 of 20
+                    recommended stations to transit deserts in the outer boroughs —
+                    locations a pure ridership-maximizing model would have ignored.
+                </p>
+                <div class="project-tools">
+                    <span>Python</span>
+                    <span>pandas</span>
+                    <span>Optimization</span>
+                    <span>Data Viz</span>
+                </div>
+            </div>
+        </div>
+        <div style="max-width: 1100px; margin: 2rem auto 0;">
+            <div class="charts-grid">
+                <div class="chart-card-global">
+                    <img src="images/citibike-monthly.png"
+                         alt="Monthly trip trends" loading="lazy">
+                    <div class="chart-info">
+                        <h4>Seasonal Ridership</h4>
+                        <p>Trip volume peaks in summer and drops sharply in winter — a key variable for station capacity planning and rebalancing logistics.</p>
+                    </div>
+                </div>
+                <div class="chart-card-global">
+                    <img src="images/citibike-duration.png"
+                         alt="Average trip duration by month" loading="lazy">
+                    <div class="chart-info">
+                        <h4>Trip Duration</h4>
+                        <p>Average trip length increases in warm months as riders take longer recreational routes, while commute-pattern trips stay consistent year-round.</p>
+                    </div>
+                </div>
+                <div class="chart-card-global">
+                    <img src="images/citibike-distance.png"
+                         alt="Average distance by month" loading="lazy">
+                    <div class="chart-info">
+                        <h4>Distance Traveled</h4>
+                        <p>Distance patterns mirror duration trends — longer rides in summer suggest stations in parks and waterfront areas see disproportionate seasonal demand.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Project 3: Air Quality Scenarios -->
+    <div class="project-entry fade-in">
+        <div class="project-inner">
+            <div class="project-img-wrap">
+                <img src="images/pm25-reduction.png"
+                     alt="PM2.5 reduction scenario modeling"
+                     loading="lazy">
+            </div>
+            <div class="project-text">
+                <span class="project-context">Urban Tech &middot; Spring 2025</span>
+                <h3>Air Quality & PM2.5 Reduction Scenarios</h3>
+                <p>
+                    What if 20% of subway commuters switched to micromobility? I modeled
+                    the air quality and climate co-benefits of mode-shift scenarios,
+                    estimating PM2.5 exposure avoided and CO2 reductions per trip.
+                </p>
+                <p>
+                    <strong>So what:</strong> Even a modest 20% shift produces measurable
+                    health benefits — equivalent to removing thousands of car-trips from
+                    the most polluted corridors. The findings support micromobility subsidy
+                    arguments.
+                </p>
+                <div class="project-tools">
+                    <span>Python</span>
+                    <span>Scenario Modeling</span>
+                    <span>Environmental Data</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Project 4: NJTPA Regression Models -->
+    <div class="project-entry fade-in">
+        <div class="project-inner">
+            <div class="project-img-wrap">
+                <div class="iframe-placeholder" onclick="loadIframe(this, 'embeds/njtpa/outputs/scatter_fit.html')">
+                    <h4>Transit Ridership Model</h4>
+                    <p>Interactive regression scatter plot</p>
+                    <button class="load-btn">Load Visualization</button>
+                </div>
+            </div>
+            <div class="project-text">
+                <span class="project-context">NJTPA &middot; 2025–2026</span>
+                <h3>Transit Ridership Prediction</h3>
+                <p>
+                    Can you predict how many people will ride transit in a given neighborhood
+                    based on how the system is built around them? I built OLS and Random Forest
+                    models across 2,181 NJ census tracts, engineering spatial features from
+                    31,000+ bus stops and 165 rail stations.
+                </p>
+                <p>
+                    <strong>So what:</strong> Bus stop density alone accounts for 55% of the
+                    Random Forest's predictive power — more than all demographic variables
+                    combined. Access, not demographics, drives ridership.
+                </p>
+                <div class="project-tools">
+                    <span>Python</span>
+                    <span>statsmodels</span>
+                    <span>scikit-learn</span>
+                    <span>GeoPandas</span>
+                </div>
+                <div class="code-snippet">
+                    <span class="code-snippet-label">spatial feature engineering</span>
+<pre><span class="comment"># Engineer transit accessibility features per tract</span>
+<span class="keyword">for</span> tract <span class="keyword">in</span> gdf.geometry:
+    <span class="comment"># Count bus stops within 2-mile buffer</span>
+    buffer = tract.<span class="func">buffer</span>(<span class="string">3218</span>)  <span class="comment"># meters</span>
+    stops_nearby = bus_stops[bus_stops.<span class="func">within</span>(buffer)]
+    gdf.<span class="func">loc</span>[idx, <span class="string">'bus_density_2mi'</span>] = <span class="func">len</span>(stops_nearby)
+
+    <span class="comment"># Distance to nearest rail station</span>
+    gdf.<span class="func">loc</span>[idx, <span class="string">'rail_dist_m'</span>] = tract.<span class="func">distance</span>(
+        rail_stations.<span class="func">unary_union</span>
+    )</pre>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Project 5: Thesis Modeling (preview) -->
+    <div class="project-entry fade-in">
+        <div class="project-inner">
+            <div class="project-img-wrap">
+                <img src="images/thesis-scenario_carbon_impact.png"
+                     alt="Embodied carbon scenario impact modeling"
+                     loading="lazy">
+            </div>
+            <div class="project-text">
+                <span class="project-context">Thesis &middot; 2025–2026</span>
+                <h3>Embodied Carbon Scenario Modeling</h3>
+                <p>
+                    How much carbon could NYC save if it mandated low-carbon concrete
+                    in all new construction? I built scenario models estimating embodied
+                    carbon reductions under four policy pathways — procurement reform,
+                    subsidies, regulation, and a hybrid approach.
+                </p>
+                <p>
+                    <strong>So what:</strong> The hybrid scenario projects 57 million tCO&#8322;e
+                    in savings over 20 years and reaches market viability in 5 years.
+                    Procurement reform alone saves 19M — doing nothing costs us all of it.
+                </p>
+                <p>
+                    <a href="argue.html" style="font-weight: 600; border-bottom: 1px solid var(--sage);">
+                        Read the full thesis deep-dive &rarr;
+                    </a>
+                </p>
+                <div class="project-tools">
+                    <span>Python</span>
+                    <span>Random Forest</span>
+                    <span>OLS Regression</span>
+                    <span>Scenario Modeling</span>
+                </div>
+            </div>
+        </div>
+        <div style="max-width: 1100px; margin: 2rem auto 0;">
+            <div class="charts-grid">
+                <div class="chart-card-global">
+                    <img src="images/thesis-rf_feature_importance.png"
+                         alt="Random Forest feature importance" loading="lazy">
+                    <div class="chart-info">
+                        <h4>What Drives Carbon</h4>
+                        <p>Floor area and structural system explain the most variance in embodied carbon — meaning design-phase choices matter more than construction-phase efficiency.</p>
+                    </div>
+                </div>
+                <div class="chart-card-global">
+                    <img src="images/thesis-waste_reduction_scenarios.png"
+                         alt="Waste reduction scenarios" loading="lazy">
+                    <div class="chart-info">
+                        <h4>Waste Scenarios</h4>
+                        <p>Aggressive construction waste recycling could reduce embodied carbon by 8-15%, with concrete and steel diversion yielding the greatest gains.</p>
+                    </div>
+                </div>
+                <div class="chart-card-global">
+                    <img src="images/thesis-wedge_emissions_avoided.png"
+                         alt="Emissions avoided wedge diagram" loading="lazy">
+                    <div class="chart-info">
+                        <h4>Emissions Avoided</h4>
+                        <p>Each policy lever contributes a wedge of cumulative savings — stacked together, they show the full potential of a combined circular economy strategy.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="leaf-divider">&#9753;</div>
+
+    <div class="cta-links">
+        <p>
+            These models don't live in isolation — they feed into
+            <a href="map.html">spatial maps</a>,
+            inform <a href="argue.html">policy arguments</a>,
+            and draw on <a href="sense.html">sensing data</a>.
+        </p>
+    </div>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <p>&copy; 2026 Erma Swartz</p>
+            <div class="footer-links">
+                <a href="mailto:ermahswartz@gmail.com">Email</a>
+                <a href="https://github.com/ErmaSwartz" target="_blank" rel="noopener">GitHub</a>
+                <a href="https://linkedin.com" target="_blank" rel="noopener">LinkedIn</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('navToggle').addEventListener('click', () =>
+            document.getElementById('navLinks').classList.toggle('open'));
+        window.addEventListener('scroll', () =>
+            document.getElementById('siteNav').classList.toggle('scrolled', window.scrollY > 10));
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        // Lightbox for chart images
+        const lb = document.createElement('div');
+        lb.className = 'lightbox-global';
+        lb.innerHTML = '<img>';
+        document.body.appendChild(lb);
+        lb.addEventListener('click', () => lb.classList.remove('active'));
+        document.addEventListener('keydown', (e) => { if (e.key === 'Escape') lb.classList.remove('active'); });
+        document.querySelectorAll('.chart-card-global img').forEach(img => {
+            img.addEventListener('click', () => {
+                lb.querySelector('img').src = img.src;
+                lb.classList.add('active');
+            });
+        });
+
+        function loadIframe(el, src) {
+            const wrapper = document.createElement('div');
+            wrapper.className = 'iframe-active';
+            wrapper.innerHTML = '<iframe src="' + src + '" loading="lazy"></iframe>';
+            el.replaceWith(wrapper);
+        }
+    </script>
+
+</body>
+</html>
