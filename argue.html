@@ -140,6 +140,39 @@
             .policy-card { grid-template-columns: 1fr; }
             .policy-card:nth-child(even) { direction: ltr; }
         }
+        /* Problem section image layout */
+        .problem-banner {
+            width: 100%;
+            max-width: 900px;
+            display: block;
+            margin: 2rem auto 1rem;
+        }
+        .problem-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 1.5rem;
+            align-items: start;
+        }
+        .problem-grid figure {
+            margin: 0;
+            text-align: center;
+        }
+        .problem-grid img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .problem-grid figcaption {
+            font-family: 'Fraunces', Georgia, serif;
+            font-size: 0.95rem;
+            color: var(--forest-deep);
+            margin-top: 0.75rem;
+            line-height: 1.4;
+        }
+        @media (max-width: 680px) {
+            .problem-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+        }
     </style>
 </head>
 <body>
@@ -214,9 +247,25 @@
                 adopted circular economy principles — reusing materials, substituting
                 lower-carbon alternatives, diverting construction waste from landfills?
             </p>
-            <img src="images/diagrams-01.png"
-                 alt="Embodied carbon in construction — building within circular economy framework"
+            <img src="images/graphic-construction.png"
+                 alt="Engineers reviewing the NYC skyline — construction at the center of climate decisions"
+                 class="problem-banner"
                  loading="lazy">
+
+            <div class="problem-grid">
+                <figure>
+                    <img src="images/marketadoptionchart.png"
+                         alt="Market adoption phases: Fragmented Demand → Scaling &amp; Investment → Market Stabilization"
+                         loading="lazy">
+                    <figcaption>From fragmented demand to market stabilization — the path circular construction must travel.</figcaption>
+                </figure>
+                <figure>
+                    <img src="images/diagrams2.png"
+                         alt="Data-supported circularity: material identification, life cycle assessment, shared data systems, building info modeling"
+                         loading="lazy">
+                    <figcaption>Data-supported circularity links material identification, lifecycle analysis, shared systems, and BIM.</figcaption>
+                </figure>
+            </div>
         </div>
     </div>
 
@@ -423,9 +472,13 @@
                 <span>Adobe Illustrator</span>
                 <span>Policy Analysis</span>
             </div>
-            <div style="margin-top: 2rem;">
-                <a href="Erma_Swartz_Thesis.pdf" class="resume-btn" target="_blank" style="display: inline-block;">
+            <div style="margin-top: 2rem; display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap;">
+                <a href="Erma_Swartz_Thesis.pdf" class="resume-btn" target="_blank">
                     Download Full Thesis (PDF)
+                </a>
+                <a href="https://www.figma.com/make/40xpc5kO2o5ebLRsofiZJY/Building-Circularity--A-Thesis-Presentation?fullscreen=1&t=kwyIq1QY5NBNQZsF-1"
+                   class="resume-btn" target="_blank" rel="noopener">
+                    See Presentation
                 </a>
             </div>
         </div>
