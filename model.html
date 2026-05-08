@@ -83,11 +83,29 @@
 
     <!-- Project 1: Machine Learning — CO2 Emissions -->
     <div class="project-entry fade-in">
-        <div class="project-inner">
-            <div class="project-img-wrap">
-                <img src="images/ml-co2-map.png"
-                     alt="Global CO2 emissions change map 1995-2020"
-                     loading="lazy">
+        <div class="project-inner" style="align-items: start;">
+            <div>
+                <div class="project-img-wrap">
+                    <img src="images/ml-co2-map.png"
+                         alt="Global CO2 emissions change map 1995-2020"
+                         loading="lazy">
+                </div>
+                <div class="code-snippet" style="margin-top: 1.25rem;">
+                    <span class="code-snippet-label">feature importance analysis</span>
+<pre><span class="keyword">from</span> sklearn.ensemble <span class="keyword">import</span> RandomForestRegressor
+
+<span class="comment"># Train RF on 25 years of country-level emissions data</span>
+rf = RandomForestRegressor(n_estimators=<span class="string">500</span>, max_depth=<span class="string">12</span>)
+rf.<span class="func">fit</span>(X_train, y_train)
+
+<span class="comment"># Extract and rank feature importances</span>
+importances = pd.<span class="func">Series</span>(
+    rf.feature_importances_, index=feature_names
+).<span class="func">sort_values</span>(ascending=<span class="string">False</span>)
+
+<span class="comment"># Top predictor: energy_mix_fossil (0.31)</span>
+<span class="comment"># R² = 0.89 on held-out test set</span></pre>
+                </div>
             </div>
             <div class="project-text">
                 <span class="project-context">Machine Learning &middot; Spring 2025</span>
@@ -112,23 +130,18 @@
                     <span>XGBoost</span>
                     <span>pandas</span>
                 </div>
-                <div class="code-snippet">
-                    <span class="code-snippet-label">feature importance analysis</span>
-<pre><span class="keyword">from</span> sklearn.ensemble <span class="keyword">import</span> RandomForestRegressor
-
-<span class="comment"># Train RF on 25 years of country-level emissions data</span>
-rf = RandomForestRegressor(n_estimators=<span class="string">500</span>, max_depth=<span class="string">12</span>)
-rf.<span class="func">fit</span>(X_train, y_train)
-
-<span class="comment"># Extract and rank feature importances</span>
-importances = pd.<span class="func">Series</span>(
-    rf.feature_importances_, index=feature_names
-).<span class="func">sort_values</span>(ascending=<span class="string">False</span>)
-
-<span class="comment"># Top predictor: energy_mix_fossil (0.31)</span>
-<span class="comment"># R² = 0.89 on held-out test set</span></pre>
+                <div style="margin-top: 1.5rem;">
+                    <a href="Erma_Swartz_ML_Report.pdf" class="resume-btn" target="_blank" style="display: inline-block;">
+                        Download Full Report (PDF)
+                    </a>
                 </div>
             </div>
+        </div>
+        <div class="stat-row">
+            <div class="stat-card"><span class="stat-num">0.89</span><span class="stat-label">R² on held-out test</span></div>
+            <div class="stat-card"><span class="stat-num">25</span><span class="stat-label">years of data (1995–2020)</span></div>
+            <div class="stat-card"><span class="stat-num">309</span><span class="stat-label">countries assembled</span></div>
+            <div class="stat-card"><span class="stat-num">200×</span><span class="stat-label">RF error reduction vs. linear baseline</span></div>
         </div>
         <div style="max-width: 1100px; margin: 2rem auto 0;">
             <div class="charts-grid">
@@ -149,6 +162,24 @@ importances = pd.<span class="func">Series</span>(
                     </div>
                 </div>
             </div>
+            <div class="charts-grid" style="margin-top: 1.5rem;">
+                <div class="chart-card-global">
+                    <img src="images/ml-correlation-heatmap.svg"
+                         alt="Correlation heatmap of CO₂ features" loading="lazy">
+                    <div class="chart-info">
+                        <h4>Feature Correlations</h4>
+                        <p>Mapping how every candidate predictor co-varies with per-capita emissions — exposing redundant features and isolating the independent signals the Random Forest leans on.</p>
+                    </div>
+                </div>
+                <div class="chart-card-global">
+                    <img src="images/ml-error-distribution.png"
+                         alt="Random Forest prediction error distribution" loading="lazy">
+                    <div class="chart-info">
+                        <h4>Error Distribution</h4>
+                        <p>Residuals cluster tightly around zero with no systematic bias — the model isn't just accurate on average, it's accurate <em>consistently</em>, country to country.</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -162,23 +193,28 @@ importances = pd.<span class="func">Series</span>(
             </div>
             <div class="project-text">
                 <span class="project-context">Urban Tech &middot; Spring 2025</span>
-                <h3>Citi Bike Expansion Optimization</h3>
+                <h3>Citi Bike Expansion in Upper Manhattan</h3>
                 <p>
-                    Where should NYC put 20 new Citi Bike stations to maximize ridership
-                    while improving equity? I analyzed 87MB of trip data to model demand
-                    patterns, then built an optimization framework balancing projected
-                    ridership against access gaps in underserved neighborhoods.
+                    Where should NYC add Citi Bike capacity in upper Manhattan to maximize
+                    ridership and climate co-benefits? Working from a full year of 2023 Citi Bike
+                    trip records (12 GB across 12 months), I scored every existing station in
+                    Inwood, Washington Heights, and the Upper West Side — then ran a pairwise
+                    optimization that ranks candidate expansions by demand <em>and</em> by CO₂
+                    and PM2.5 avoided per trip diverted from cars.
                 </p>
                 <p>
-                    <strong>So what:</strong> The equity-weighted model shifted 8 of 20
-                    recommended stations to transit deserts in the outer boroughs —
-                    locations a pure ridership-maximizing model would have ignored.
+                    <strong>So what:</strong> A handful of nodes — Broadway &amp; W 185 St,
+                    Seaman Ave &amp; Isham St, and Dyckman St &amp; Staff St — anchor most of
+                    the top 20 recommended pairs. Together those expansions project ≈100,000
+                    new bike-miles, 57 kg of CO₂ avoided, and 4 kg of PM2.5 emissions
+                    prevented annually — concentrated in the neighborhoods where the new
+                    capacity would land.
                 </p>
                 <div class="project-tools">
                     <span>Python</span>
                     <span>pandas</span>
                     <span>Optimization</span>
-                    <span>Data Viz</span>
+                    <span>Climate Co-Benefits</span>
                 </div>
             </div>
         </div>
@@ -370,12 +406,12 @@ importances = pd.<span class="func">Series</span>(
     <!-- Footer -->
     <footer class="site-footer">
         <div class="footer-inner">
-            <p>Made in New York with too much coffee and QGIS.</p>
             <p>&copy; 2026 Erma Swartz</p>
             <div class="footer-links">
-                <a href="mailto:ermahswartz@gmail.com">Email</a>
+                <a href="mailto:es4284@columbia.edu">es4284@columbia.edu</a>
+                <a href="mailto:ermahswartz@gmail.com">ermahswartz@gmail.com</a>
                 <a href="https://github.com/ErmaSwartz" target="_blank" rel="noopener">GitHub</a>
-                <a href="https://linkedin.com" target="_blank" rel="noopener">LinkedIn</a>
+                <a href="https://www.linkedin.com/in/erma-swartz-174939184/" target="_blank" rel="noopener">LinkedIn</a>
             </div>
         </div>
     </footer>
